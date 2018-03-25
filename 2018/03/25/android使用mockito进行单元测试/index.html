@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Sun Mar 25 2018 14:20:40 GMT+0800">
-        <meta property="article:modified_time" content="Sun Mar 25 2018 14:31:40 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:33:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/03/25/android使用mockito进行单元测试/index.html",
     "headline": "android使用mockito进行单元测试",
     "datePublished": "Sun Mar 25 2018 14:20:40 GMT+0800",
-    "dateModified": "Sun Mar 25 2018 14:31:40 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:33:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "weechan",
@@ -346,7 +346,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android单元测试"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android单元测试</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mockito的使用（kotlin坑多建议勿用）"><span class="post-toc-number">2.</span> <span class="post-toc-text">Mockito的使用（kotlin坑多建议勿用）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Spy"><span class="post-toc-number">2.0.0.1.</span> <span class="post-toc-text">Spy</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">`</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android单元测试"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android单元测试</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mockito的使用（kotlin坑多建议勿用）"><span class="post-toc-number">2.</span> <span class="post-toc-text">Mockito的使用（kotlin坑多建议勿用）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#验证调用-次数"><span class="post-toc-number">2.0.0.1.</span> <span class="post-toc-text">验证调用,次数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改行为"><span class="post-toc-number">2.0.0.2.</span> <span class="post-toc-text">修改行为</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Spy"><span class="post-toc-number">2.0.0.3.</span> <span class="post-toc-text">Spy</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">`</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -471,75 +471,10 @@
     
         <h1 id="Android单元测试"><a href="#Android单元测试" class="headerlink" title="Android单元测试"></a>Android单元测试</h1><p>标签（空格分隔）： 单元测试</p>
 <hr>
-<h1 id="Mockito的使用（kotlin坑多建议勿用）"><a href="#Mockito的使用（kotlin坑多建议勿用）" class="headerlink" title="Mockito的使用（kotlin坑多建议勿用）"></a>Mockito的使用（kotlin坑多建议勿用）</h1><p>导入Mockito的依赖<br><figure class="highlight plain"><figcaption><span>'org.mockito:mockito-core:2.7.6'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<pre><code>@Mock
-private  List&lt;String&gt; data = new ArrayList&lt;&gt;();
-
-@Before
-public void setUp(){
-    MockitoAnnotations.initMocks(this);
-     //初始化Mock注解生成的对象,比如Mock对象,ArgumentCaptor等
-    List&lt;String&gt; datas = Mockito.mock(List.class);
-    //创建Mock对象,与 @Mock 注解同理
-    ArgumentCaptor&lt;String&gt; captor = ArgumentCaptor.forClass(String.class);
-    //创建ArugmentCaptor 与@Captor注解同理
-    //后面会讲解ArgumentCaptor
-
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 验证调用,次数</span><br></pre></td></tr></table></figure>
-<pre><code>@Test
-public void TestStudy(){
-
-    datas.add(&quot;AAA&quot;);
-    datas.add(&quot;BBB&quot;);
-    datas.clear();
-
-    verify(datas).clear();
-
-    // any 有很多方法 可以匹配任意参数 比如 anyInt()
-    verify(datas,times(2)).add(anyString());
-    //调用两次
-    verify(datas,never()).addAll(any(Collection.class));
-    //从不调用
-    verify(datas,atLeast(2)).add(anyString());
-    //至少调用2次
-    verify(datas,atMost(2)).add(anyString());
-    //至多调用3次
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 修改行为</span><br></pre></td></tr></table></figure>
-<pre><code>@Test
-public void testReturn(){
-
-    when(datas.get(anyInt())).thenAnswer(new Answer&lt;Object&gt;() {
-        @Override
-        public Object answer(InvocationOnMock invocation) throws Throwable {
-            Integer index = invocation.getArgument(0);
-            return &quot;YOUR INDEX IS : NO.&quot; + index;
-        }
-    });
-    //获取方法的参数并返回参数组成的字符串
-
-    when(datas.get(255))
-            .thenReturn(&quot;FIRST INVOKE GET(255)&quot;)
-            .thenReturn(&quot;SECOND INVOKE GET(255)&quot;)
-            .thenThrow(new RuntimeException(&quot;CAN&apos;T GET MORE THAN THREE TIMES&quot;));
-    //第一次返回第一句thenReturn,第二次第二句,第三次抛异常
-
-    doThrow(new RuntimeException()).when(datas).clear();
-    //清空数据则抛异常
-
-    System.out.println(datas.get(25));
-    System.out.println(datas.get(255));
-    System.out.println(datas.get(255));
-    System.out.println(datas.get(15));
-</code></pre><p>//        datas.clear(); 执行则会出错<br>//        System.out.println(datas.get(255)); 执行则会出错</p>
-<pre><code>  output:
-    YOUR INDEX IS : NO.25
-    FIRST INVOKE GET(255)
-    SECOND INVOKE GET(255)
-    YOUR INDEX IS : NO.1
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数匹配</span><br></pre></td></tr></table></figure>
+<h1 id="Mockito的使用（kotlin坑多建议勿用）"><a href="#Mockito的使用（kotlin坑多建议勿用）" class="headerlink" title="Mockito的使用（kotlin坑多建议勿用）"></a>Mockito的使用（kotlin坑多建议勿用）</h1><p>导入Mockito的依赖<br>testCompile ‘org.mockito:mockito-core:2.7.6’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Mock</span><br><span class="line">private  List&lt;String&gt; data = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">@Before</span><br><span class="line">public void setUp()&#123;</span><br><span class="line">    MockitoAnnotations.initMocks(this);</span><br><span class="line">     //初始化Mock注解生成的对象,比如Mock对象,ArgumentCaptor等</span><br><span class="line">    List&lt;String&gt; datas = Mockito.mock(List.class);</span><br><span class="line">    //创建Mock对象,与 @Mock 注解同理</span><br><span class="line">    ArgumentCaptor&lt;String&gt; captor = ArgumentCaptor.forClass(String.class);</span><br><span class="line">    //创建ArugmentCaptor 与@Captor注解同理</span><br><span class="line">    //后面会讲解ArgumentCaptor</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="验证调用-次数"><a href="#验证调用-次数" class="headerlink" title="验证调用,次数"></a>验证调用,次数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void TestStudy()&#123;</span><br><span class="line">    </span><br><span class="line">    datas.add(&quot;AAA&quot;);</span><br><span class="line">    datas.add(&quot;BBB&quot;);</span><br><span class="line">    datas.clear();</span><br><span class="line"></span><br><span class="line">    verify(datas).clear();</span><br><span class="line"></span><br><span class="line">    // any 有很多方法 可以匹配任意参数 比如 anyInt()</span><br><span class="line">    verify(datas,times(2)).add(anyString());</span><br><span class="line">    //调用两次</span><br><span class="line">    verify(datas,never()).addAll(any(Collection.class));</span><br><span class="line">    //从不调用</span><br><span class="line">    verify(datas,atLeast(2)).add(anyString());</span><br><span class="line">    //至少调用2次</span><br><span class="line">    verify(datas,atMost(2)).add(anyString());</span><br><span class="line">    //至多调用3次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="修改行为"><a href="#修改行为" class="headerlink" title="修改行为"></a>修改行为</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    @Test</span><br><span class="line">    public void testReturn()&#123;</span><br><span class="line"></span><br><span class="line">        when(datas.get(anyInt())).thenAnswer(new Answer&lt;Object&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public Object answer(InvocationOnMock invocation) throws Throwable &#123;</span><br><span class="line">                Integer index = invocation.getArgument(0);</span><br><span class="line">                return &quot;YOUR INDEX IS : NO.&quot; + index;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        //获取方法的参数并返回参数组成的字符串</span><br><span class="line"></span><br><span class="line">        when(datas.get(255))</span><br><span class="line">                .thenReturn(&quot;FIRST INVOKE GET(255)&quot;)</span><br><span class="line">                .thenReturn(&quot;SECOND INVOKE GET(255)&quot;)</span><br><span class="line">                .thenThrow(new RuntimeException(&quot;CAN&apos;T GET MORE THAN THREE TIMES&quot;));</span><br><span class="line">        //第一次返回第一句thenReturn,第二次第二句,第三次抛异常</span><br><span class="line"></span><br><span class="line">        doThrow(new RuntimeException()).when(datas).clear();</span><br><span class="line">        //清空数据则抛异常</span><br><span class="line"></span><br><span class="line">        System.out.println(datas.get(25));</span><br><span class="line">        System.out.println(datas.get(255));</span><br><span class="line">        System.out.println(datas.get(255));</span><br><span class="line">        System.out.println(datas.get(15));</span><br><span class="line">        </span><br><span class="line">//        datas.clear(); 执行则会出错</span><br><span class="line">//        System.out.println(datas.get(255)); 执行则会出错</span><br><span class="line"></span><br><span class="line">      output:</span><br><span class="line">        YOUR INDEX IS : NO.25</span><br><span class="line">        FIRST INVOKE GET(255)</span><br><span class="line">        SECOND INVOKE GET(255)</span><br><span class="line">        YOUR INDEX IS : NO.1</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">#### 参数匹配</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testMatcher(){
     //匹配包含HTTP的字符串
