@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Sun Mar 25 2018 14:20:40 GMT+0800">
-        <meta property="article:modified_time" content="Sun Mar 25 2018 14:28:26 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:30:33 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/03/25/android使用mockito进行单元测试/index.html",
     "headline": "android使用mockito进行单元测试",
     "datePublished": "Sun Mar 25 2018 14:20:40 GMT+0800",
-    "dateModified": "Sun Mar 25 2018 14:28:26 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:30:33 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "weechan",
@@ -486,7 +486,7 @@ public void setUp(){
     //后面会讲解ArgumentCaptor
 
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **验证调用,次数**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 验证调用,次数</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void TestStudy(){
 
@@ -506,7 +506,7 @@ public void TestStudy(){
     verify(datas,atMost(2)).add(anyString());
     //至多调用3次
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **修改行为**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 修改行为</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testReturn(){
 
@@ -534,7 +534,7 @@ public void testReturn(){
     System.out.println(datas.get(15));
 </code></pre><p>//        datas.clear(); 执行则会出错<br>//        System.out.println(datas.get(255)); 执行则会出错</p>
 <p>/<em>      output:<br>        YOUR INDEX IS : NO.25<br>        FIRST INVOKE GET(255)<br>        SECOND INVOKE GET(255)<br>        YOUR INDEX IS : NO.15</em>/<br>    }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **参数匹配**</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数匹配</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testMatcher(){
     //匹配包含HTTP的字符串
@@ -556,8 +556,9 @@ public void testMatcher(){
        false
        true
        */
+
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **参数捕捉**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数捕捉</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testCaptor(){
 
@@ -569,7 +570,7 @@ public void testCaptor(){
     System.out.println(stringCaptor.getAllValues());
     //  output : [ADD ONE STRING, ADD TWO STRING]
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **验证顺序**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 验证顺序</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testOrder(){
     datas.add(&quot;A&quot;);
@@ -581,7 +582,7 @@ public void testOrder(){
     order.verify(datas).clear();
     order.verify(datas).add(&quot;B&quot;);
 }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **未验证互动**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 未验证互动</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void redundant(){
     datas.add(&quot;ONE&quot;);
@@ -592,7 +593,7 @@ public void redundant(){
     //上面的例子 验证通过
 </code></pre><p>//        datas.add(“C”);<br>//        verifyNoMoreInteractions(datas);<br>//        加上上面两行则不通过,因为add(“C”)未被verify</p>
 <pre><code>}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **零互动**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 零互动</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
     public void verifyZero(){
         List a = mock(List.class);
@@ -605,7 +606,7 @@ public void redundant(){
         //上述代码异常,因为list a 进行了操作,
 
     }
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **清除mock**</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 清除mock</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void reset_mock(){
     List list = mock(List.class);
@@ -616,7 +617,7 @@ public void reset_mock(){
     reset(list);
     assertEquals(0,list.size());
 }
-</code></pre><h4 id="Spy"><a href="#Spy" class="headerlink" title="Spy"></a><strong>Spy</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **监控真实对象Spy**</span><br></pre></td></tr></table></figure>
+</code></pre><h4 id="Spy"><a href="#Spy" class="headerlink" title="Spy"></a>Spy</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 监控真实对象Spy</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void spyTest() {
 
