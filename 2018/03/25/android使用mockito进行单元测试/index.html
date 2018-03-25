@@ -239,7 +239,7 @@
 
     
         <meta property="article:published_time" content="Sun Mar 25 2018 14:20:40 GMT+0800">
-        <meta property="article:modified_time" content="Sun Mar 25 2018 14:30:33 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:31:40 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +262,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/03/25/android使用mockito进行单元测试/index.html",
     "headline": "android使用mockito进行单元测试",
     "datePublished": "Sun Mar 25 2018 14:20:40 GMT+0800",
-    "dateModified": "Sun Mar 25 2018 14:30:33 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:31:40 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "weechan",
@@ -533,8 +533,13 @@ public void testReturn(){
     System.out.println(datas.get(255));
     System.out.println(datas.get(15));
 </code></pre><p>//        datas.clear(); 执行则会出错<br>//        System.out.println(datas.get(255)); 执行则会出错</p>
-<p>/<em>      output:<br>        YOUR INDEX IS : NO.25<br>        FIRST INVOKE GET(255)<br>        SECOND INVOKE GET(255)<br>        YOUR INDEX IS : NO.15</em>/<br>    }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数匹配</span><br></pre></td></tr></table></figure>
+<pre><code>  output:
+    YOUR INDEX IS : NO.25
+    FIRST INVOKE GET(255)
+    SECOND INVOKE GET(255)
+    YOUR INDEX IS : NO.1
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数匹配</span><br></pre></td></tr></table></figure>
 <pre><code>@Test
 public void testMatcher(){
     //匹配包含HTTP的字符串
@@ -552,10 +557,10 @@ public void testMatcher(){
     System.out.println(datas.contains(&quot;NOT CONTAINS&quot;));
     System.out.println(datas.contains(&quot;CONTAINS HTTP&quot;));
 
-    /* output
+     output
        false
        true
-       */
+
 
 }
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 参数捕捉</span><br></pre></td></tr></table></figure>
