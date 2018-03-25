@@ -43,7 +43,7 @@
     
     <title>
         
-            归档: 2018/3 | 
+            Room数据库的使用 | 
         
         weechan&#39;s blog
     </title>
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="weechan&#39;s blog">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/2018/03/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/25/Room数据库的使用/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="weechan&#39;s blog">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/2018/03/">
+    <meta property="og:url" content="http://yoursite.com/2018/03/25/Room数据库的使用/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018/3 | weechan&#39;s blog">
+    <meta property="og:title" content="Room数据库的使用 | weechan&#39;s blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Sun Mar 25 2018 14:23:46 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:24:09 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2018/03/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/03/25/Room数据库的使用/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/25/Room数据库的使用/index.html",
+    "headline": "Room数据库的使用",
+    "datePublished": "Sun Mar 25 2018 14:23:46 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:24:09 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "weechan",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/head.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "weechan&#39;s blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "weechan的博客",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,317 +317,211 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Room"><span class="post-toc-number">1.</span> <span class="post-toc-text">Room</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle配置"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">Gradle配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Room数据库的简单例子"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">Room数据库的简单例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#各个注解的参数参考"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">各个注解的参数参考</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/retrofit的基本用法/">Retorift的基本用法</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/retrofit的基本用法/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/Room数据库的使用/">Room数据库的使用</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Room
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/Room数据库的使用/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/SufaceView与TexutreView的一些解析/">SufaceView与TexutreView的简单解析</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/SufaceView与TexutreView的一些解析/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/android使用mockito进行单元测试/">android使用mockito进行单元测试</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/android使用mockito进行单元测试/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Room数据库的使用
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/head.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>weechan</strong>
+        <span>3月 25, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/25/Room数据库的使用/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=weechan&#39;s blog&title=Room数据库的使用&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/25/Room数据库的使用/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Room"><a href="#Room" class="headerlink" title="Room"></a>Room</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<h3 id="Gradle配置"><a href="#Gradle配置" class="headerlink" title="Gradle配置"></a>Gradle配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">implementation &quot;android.arch.persistence.room:rxjava2:1.0.0&quot;</span><br><span class="line">implementation &quot;android.arch.persistence.room:runtime:1.0.0&quot;</span><br><span class="line">kapt &quot;android.arch.persistence.room:compiler:1.0.0&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Room数据库的简单例子"><a href="#Room数据库的简单例子" class="headerlink" title="Room数据库的简单例子"></a>Room数据库的简单例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//实体类,每个字段都是数据库中的一列</span><br><span class="line">@Entity(tableName = &quot;article&quot;)</span><br><span class="line">data class ArticleDetial(</span><br><span class="line">        @PrimaryKey(autoGenerate = true)</span><br><span class="line">        val id : Int,</span><br><span class="line">        val author: String,</span><br><span class="line">        val title: String,</span><br><span class="line">        val content: String)</span><br><span class="line"></span><br><span class="line">//Dao接口 操作数据库的主要接口</span><br><span class="line">@Dao</span><br><span class="line">interface ArticleDao &#123;</span><br><span class="line">    </span><br><span class="line">    @Insert(onConflict = OnConflictStrategy.REPLACE)</span><br><span class="line">    fun insertArticle(article : ArticleDetial)</span><br><span class="line"></span><br><span class="line">    @Delete()</span><br><span class="line">    fun deleteArticle(article:ArticleDetial)</span><br><span class="line"></span><br><span class="line">    @Query(&quot;DELETE FROM article&quot;)</span><br><span class="line">    fun deleteAllArticles()</span><br><span class="line"></span><br><span class="line">    @Query(&quot;SELECT * FROM article ORDER BY id DESC&quot;)</span><br><span class="line">    fun queryArticle(): Single&lt;List&lt;ArticleDetial&gt;&gt;</span><br><span class="line"></span><br><span class="line">    @Query(&quot;SELECT * FROM article WHERE id IN (:range)&quot;)</span><br><span class="line">    fun queryRange(range:IntArray):Flowable&lt;List&lt;ArticleDetial&gt;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//数据库S,为应用创建数据库</span><br><span class="line">@Database(entities = &#123;ArticleDetial.class&#125;,version=1)</span><br><span class="line">public abstract class AppDatabase extends RoomDatabase&#123;</span><br><span class="line">    public abstract ArticleDao articleDao();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">val db : AppDatabase = Room.databaseBuilder(context, AppDatabase::class.java, &quot;articles&quot;).build()</span><br><span class="line">创建数据库</span><br></pre></td></tr></table></figure>
+<h2 id="各个注解的参数参考"><a href="#各个注解的参数参考" class="headerlink" title="各个注解的参数参考"></a>各个注解的参数参考</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@PrimaryKey 主键</span><br><span class="line">autoGenerate 自增</span><br><span class="line"></span><br><span class="line">@ColumnInfo</span><br><span class="line">name 重命名列名</span><br><span class="line"></span><br><span class="line">@Insert 插入方法</span><br><span class="line">@Update </span><br><span class="line">onConflict 冲突策略 //https://sqlite.org/lang_conflict.html</span><br><span class="line"></span><br><span class="line">int	ABORT</span><br><span class="line">OnConflict strategy constant to abort the transaction.</span><br><span class="line"></span><br><span class="line">int	FAIL</span><br><span class="line">OnConflict strategy constant to fail the transaction.</span><br><span class="line"></span><br><span class="line">int	IGNORE</span><br><span class="line">OnConflict strategy constant to ignore the conflict.</span><br><span class="line"></span><br><span class="line">int	REPLACE</span><br><span class="line">OnConflict strategy constant to replace the old data and continue the transaction.</span><br><span class="line"></span><br><span class="line">int	ROLLBACK</span><br><span class="line">OnConflict strategy constant to rollback the transaction.</span><br><span class="line"></span><br><span class="line">@Delete 删除</span><br><span class="line"></span><br><span class="line">@Query查询</span><br><span class="line">value SQLITE语句</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/03/25/retrofit的基本用法/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/25/SufaceView与TexutreView的一些解析/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

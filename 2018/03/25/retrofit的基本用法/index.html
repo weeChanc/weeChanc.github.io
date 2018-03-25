@@ -43,7 +43,7 @@
     
     <title>
         
-            归档: 2018/3 | 
+            Retorift的基本用法 | 
         
         weechan&#39;s blog
     </title>
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="weechan&#39;s blog">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/2018/03/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/25/retrofit的基本用法/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="weechan&#39;s blog">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/2018/03/">
+    <meta property="og:url" content="http://yoursite.com/2018/03/25/retrofit的基本用法/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018/3 | weechan&#39;s blog">
+    <meta property="og:title" content="Retorift的基本用法 | weechan&#39;s blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Sun Mar 25 2018 14:24:25 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:24:54 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2018/03/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/03/25/retrofit的基本用法/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/25/retrofit的基本用法/index.html",
+    "headline": "Retorift的基本用法",
+    "datePublished": "Sun Mar 25 2018 14:24:25 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:24:54 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "weechan",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/head.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "weechan&#39;s blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "weechan的博客",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,317 +317,212 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Retrofi2"><span class="post-toc-number">1.</span> <span class="post-toc-text">Retrofi2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拦截器-Interceptor"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">拦截器 Interceptor</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/retrofit的基本用法/">Retorift的基本用法</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/retrofit的基本用法/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/Room数据库的使用/">Room数据库的使用</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Room
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/Room数据库的使用/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/SufaceView与TexutreView的一些解析/">SufaceView与TexutreView的简单解析</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/SufaceView与TexutreView的一些解析/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/android使用mockito进行单元测试/">android使用mockito进行单元测试</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/android使用mockito进行单元测试/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Retorift的基本用法
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/head.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>weechan</strong>
+        <span>3月 25, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/25/retrofit的基本用法/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=weechan&#39;s blog&title=Retorift的基本用法&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/25/retrofit的基本用法/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Retrofi2"><a href="#Retrofi2" class="headerlink" title="Retrofi2"></a>Retrofi2</h1><p>标签（空格分隔）： android</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导入依赖</span></span><br><span class="line">    compile <span class="string">'com.squareup.retrofit2:retrofit:2.0.2'</span></span><br><span class="line">    compile <span class="string">'com.squareup.retrofit2:converter-gson:2.0.2'</span></span><br><span class="line">    compile <span class="string">'com.squareup.retrofit2:adapter-rxjava:2.0.2'</span></span><br><span class="line">    compile <span class="string">'com.squareup.okhttp3:logging-interceptor:3.2.0'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//Retrofit基础配置</span><br><span class="line">    Retrofit retrofit = new Retrofit.Builder()</span><br><span class="line">        .baseUrl(BASE_URL)</span><br><span class="line">        .client(client)</span><br><span class="line">        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</span><br><span class="line">        .addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">        .build();</span><br><span class="line">//GsonConverterFactory.create()提供Gson支持，可以添加多种序列化Factory，</span><br><span class="line">//RxJavaCallAdapterFactory.create() rxjava支持</span><br></pre></td></tr></table></figure>
+<p>retrofit注解解析:<br>方法注解，包含<code>@GET、@POST、@PUT、@DELETE、@PATH、@HEAD、@OPTIONS、@HTTP。</code><br>标记注解，包含<code>@FormUrlEncoded、@Multipart、@Streaming</code><br>参数注解，包含<code>@Query,@QueryMap、@Body、@Field，@FieldMap、@Part，@PartMap</code><br>其他注解，包含<code>@Path、@Header,@Headers、@Url</code></p>
+<hr>
+<p>@Streaming:用于下载大文件<br>@Url：使用全路径复写baseUrl，适用于非统一baseUrl的场景。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Streaming</span><br><span class="line">@GET</span><br><span class="line">Call&lt;ResponseBody&gt; download(@Url String url);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>@Path：URL占位符，用于替换和动态更新,相应的参数必须使用相同的字符串被@Path进行注释<br>@Query,@QueryMap:查询参数，用于GET查询,需要注意的是@QueryMap可以约定是否需要encode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;group&#123;gid&#125;/users&quot;)</span><br><span class="line">Call&lt;List&lt;User&gt;&gt; getGroupList( @Path(&quot;gid&quot;) int groupId);</span><br><span class="line">//--&gt; http://baseurl/group/groupId/users</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>@Body:用于POST请求体，将实例对象转换为对应的json字符串参数.<br>@Header：header处理，不能被互相覆盖，用于修饰参数.<br>@Headers 用于修饰方法,用于设置多个Header值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@POST(&quot;add&quot;)</span><br><span class="line">Call&lt;List&lt;User&gt;&gt; addUser(@Body User user,@Header(&quot;Authorization&quot;) String authorization);</span><br><span class="line"> </span><br><span class="line">@Headers(&#123;</span><br><span class="line">    &quot;Accept: application/vnd.github.v3.full+json&quot;,</span><br><span class="line">    &quot;User-Agent: Retrofit-Sample-App&quot;&#125;)</span><br><span class="line">@GET(&quot;users/&#123;username&#125;&quot;)</span><br><span class="line">Call&lt;User&gt; getUser(@Path(&quot;username&quot;) String username);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//基础用法</span><br><span class="line">1.定义接口,实体类-&gt;用于json</span><br><span class="line">public interface KugouApi &#123;</span><br><span class="line">  @GET(&quot;song_search_v2?&quot;)</span><br><span class="line">  Call&lt;List&lt;Repo&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拦截器-Interceptor"><a href="#拦截器-Interceptor" class="headerlink" title="拦截器 Interceptor"></a>拦截器 Interceptor</h2><p>拦截器,可用于对请求前对Request进行检查,请求后对Response进行检查.以达到重写,修改请求,返回的目的.<br>比如 修改请求头,响应头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">    OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new CookieInterceptor()).build();</span><br><span class="line">    new Retrofit.Builder().client(okHttpClient)</span><br><span class="line">//构建带拦截器的OkhttpClient传入Retrofit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//一个简易的保持服务端Seesion会话的拦截器</span><br><span class="line">public class CookieInterceptor implements Interceptor &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Response intercept(Chain chain) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">        String cookie;</span><br><span class="line">        Request request;</span><br><span class="line">        Response response;</span><br><span class="line"></span><br><span class="line">//cookieMgr 其实是SharePreference的封装类</span><br><span class="line">        if(!(cookie = App.cookieMgr.get(&quot;Set-Cookie&quot;,&quot;&quot;)).equals(&quot;&quot;))&#123;</span><br><span class="line">            Request.Builder builder = chain.request().newBuilder();</span><br><span class="line">            builder.addHeader(&quot;Cookie&quot;,cookie);</span><br><span class="line">            request = builder.build();</span><br><span class="line">            Log.e(&quot;CookieInterceptor&quot;,cookie);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            request = chain.request();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        response = chain.proceed(request);</span><br><span class="line"></span><br><span class="line">        if(response.header(&quot;Set-Cookie&quot;) != null)&#123;</span><br><span class="line">            App.cookieMgr.clear(&quot;Set-Cookie&quot;);</span><br><span class="line">            App.cookieMgr.save(&quot;Set-Cookie&quot;,response.header(&quot;Set-Cookie&quot;));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">原理:</span><br><span class="line">当用户是首次发起请求的时候(其实就是没有带cookie),这时候响应头会返回一个cookie值,该值含有JSESSIONID,此时将该值保存到本地,在以后的访问接口过程中把存在本地的值取出来，然后加到请求头上面就可以了</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/25/Room数据库的使用/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

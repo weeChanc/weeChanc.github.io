@@ -43,7 +43,7 @@
     
     <title>
         
-            归档: 2018/3 | 
+            SufaceView与TexutreView的简单解析 | 
         
         weechan&#39;s blog
     </title>
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="weechan&#39;s blog">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/2018/03/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="weechan&#39;s blog">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/2018/03/">
+    <meta property="og:url" content="http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018/3 | weechan&#39;s blog">
+    <meta property="og:title" content="SufaceView与TexutreView的简单解析 | weechan&#39;s blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Sun Mar 25 2018 14:21:58 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 25 2018 14:23:24 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2018/03/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/index.html",
+    "headline": "SufaceView与TexutreView的简单解析",
+    "datePublished": "Sun Mar 25 2018 14:21:58 GMT+0800",
+    "dateModified": "Sun Mar 25 2018 14:23:24 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "weechan",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/head.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "weechan&#39;s blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "weechan的博客",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,317 +317,277 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Surface-SurfaceView-TextureView-SurfaceTexture"><span class="post-toc-number">1.</span> <span class="post-toc-text">Surface/SurfaceView/TextureView/SurfaceTexture</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Surface"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Surface</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SurfaceView的用法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">SurfaceView的用法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TextureView"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">TextureView</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/retrofit的基本用法/">Retorift的基本用法</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/retrofit的基本用法/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/Room数据库的使用/">Room数据库的使用</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Room
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/Room数据库的使用/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/SufaceView与TexutreView的一些解析/">SufaceView与TexutreView的简单解析</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/SufaceView与TexutreView的一些解析/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/android使用mockito进行单元测试/">android使用mockito进行单元测试</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/android使用mockito进行单元测试/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/03/25/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/03/25/hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/head.png" width="44px" height="44px" alt="weechan's avatar">
-            </div>
-            <div>
-                <strong>weechan</strong>
-                <span>3月 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                SufaceView与TexutreView的简单解析
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/head.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>weechan</strong>
+        <span>3月 25, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=weechan&#39;s blog&title=SufaceView与TexutreView的简单解析&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/25/SufaceView与TexutreView的一些解析/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Surface-SurfaceView-TextureView-SurfaceTexture"><a href="#Surface-SurfaceView-TextureView-SurfaceTexture" class="headerlink" title="Surface/SurfaceView/TextureView/SurfaceTexture"></a>Surface/SurfaceView/TextureView/SurfaceTexture</h1><p>标签（空格分隔）： android</p>
+<hr>
+<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>可以直接从内存或者DMA等硬件接口取得图像数据,是个非常重要的绘图容器。</p>
+<p>  简单的说Surface对应了一块屏幕缓冲区，每个window对应一个Surface，任何View都要画在Surface的Canvas上。传统的view共享一块屏幕缓冲区，所有的绘制必须在UI线程中进行。</p>
+<p>  Surface中的Canvas成员，是专门用于供程序员画图的场所；<figure class="highlight plain"><figcaption><span>lockCanvas(Rect inOutDirty)```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  其中的原始缓冲区是用来保存数据的地方；</span><br><span class="line">  Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原始缓冲区以及其它方面的内容。</span><br><span class="line">  Surface是用来管理数据的。（句柄）</span><br><span class="line">  </span><br><span class="line">  PS:句柄是一种特殊的智能指针。当一个应用程序要引用其他系统（如数据库、操作系统）所管理的内存块或对象时，就要使用句柄。</span><br><span class="line"></span><br><span class="line">## SurfaceView</span><br><span class="line"></span><br><span class="line">```flow</span><br><span class="line">object=&gt;start: Object:&gt;http://www.google.com</span><br><span class="line">view=&gt;start: View:&gt;</span><br><span class="line">surface=&gt;start: SurfaceView:&gt;</span><br><span class="line">object(right)-&gt;view(right)-&gt;surface</span><br></pre></td></tr></table></figure></p>
+<p>SurfaceView是一个View,但他拥有自己的Surface</p>
+<p>开发者一般所用的View都是在Canvas进行绘制，然后最顶层的View（通常是DecorView)的Canvas的数据信息会转换到一个Surface上。SurfaceFlinger会将各个应用窗口的Surface进行合成，然后绘制到屏幕上.</p>
+<p><font color="PINK"> <strong>那为什么会有一个SurfaceView呢？</strong> </font></p>
+<ol>
+<li>这是因为View的测量（Measure），布局（Layout）以及绘制（Draw）的计算量比较大。计算完以后再从Canvas转换成Surface中数据，然后再绘制屏幕，这个流程比较耗时。对于常规的UI绘制不会有什么问题，但是像Camera的预览以及视频的播放这样的应用场景来说就不可接受了。SurfaceView就是为了解决这个问题。SurfaceView内容不再是绘制在Canvas上，而是直接绘制在其持有的一个Surface上。由于省去了很多步骤，其绘制性能大大提高。而SurfaceView本身只是用来控制这个Surface的大小和位置而已。</li>
+<li>surfaceView是在一个新起的单独线程中可以重新绘制画面，而View必须在UI的主线程中更新画面。那么在UI的主线程中更新画面 可能会引发问题，比如你更新画面的时间过长，那么你的主UI线程会被你正在画的函数阻塞。那么将无法响应按键，触屏等消息。当使用surfaceView 由于是在新的线程中更新画面所以不会阻塞你的UI主线程。</li>
+</ol>
+<h3 id="SurfaceView的用法"><a href="#SurfaceView的用法" class="headerlink" title="SurfaceView的用法"></a>SurfaceView的用法</h3><p>SurfaceHolder.是对 SurfaceView 的 Surface 的包装.提供访问和控制SurfaceView内嵌的Surface相关的方法<br>SurfaceHolder.CallBack. 即Surface的监听器，它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变</p>
+<p>获取到 SurfaceView 对应的 SurfaceHolder，给 SurfaceHolder 添加一个 SurfaceHolder.callback 对象。<br>创建渲染线程对象<br>在子线程中开始在 Surface 上面绘制图形，使用 SurfaceHolder 的 lockCanvas（）获取 Surface 上面指定区域的 Canvas，在该 Canvas 上绘制图形，绘制结束后，使用 SurfaceHolder 的 unlockCanvasAndPost（）方法解锁 Canvas，并且让 UI 线程把 Surface 上面的东西绘制到 View 的 Canvas 上面</p>
+<p>注意事项:</p>
+<ol>
+<li>surface 的排版显示受到视图层级关系的影响，它的兄弟视图结点会在顶端显示。<br>注意，如果 surface 上面有透明控件，那么它的每次变化都会引起框架重新计算它和顶层控件之间的透明效果，这会影响性能。 </li>
+<li>所有 SurfaceView 和 SurfaceHolder.Callback的方法都会在UI线程里调用，一般来说就是应用程序主线程。所以渲染线程所要访问的各种变量应该作同步处理。 </li>
+</ol>
+<h2 id="TextureView"><a href="#TextureView" class="headerlink" title="TextureView"></a>TextureView</h2><p>Texture类似SurfaceView,但但能像一般的View那样能被缩放、平移，也能加上动画。TextureView只能在开启了硬件加速的Window中使用，并且消费的内存要比SurfaceView多，并伴随着1-3帧的延迟。</p>
+<p>SurfaceTextureListener 类似SurfaceHolder.CallBack.能够监听SurfaceTexture的创建.</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th style="text-align:left">方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">getSurfaceTexture()</td>
+<td>This method returns the SurfaceTexture used by this view.</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">getBitmap(int width, int height)</td>
+<td>This method returns Returns a Bitmap representation of the content of the associated surface texture.</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">getTransform(Matrix transform)</td>
+<td>This method returns the transform associated with this texture view.</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:left">isOpaque()</td>
+<td>This method indicates whether this View is opaque.</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:left">lockCanvas()</td>
+<td>This method start editing the pixels in the surface</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:left">setOpaque(boolean opaque)</td>
+<td>This method indicates whether the content of this TextureView is opaque.</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align:left">setTransform(Matrix transform)</td>
+<td>This method sets the transform to associate with this texture view.</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:left">unlockCanvasAndPost(Canvas canvas)</td>
+<td>This method finish editing pixels in the surface.</td>
+</tr>
+</tbody>
+</table>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/03/25/Room数据库的使用/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/25/android使用mockito进行单元测试/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
