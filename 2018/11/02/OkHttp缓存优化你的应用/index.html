@@ -43,6 +43,8 @@
     
     <title>
         
+            OkHttp缓存优化你的应用 | 
+        
         weechan&#39;s blog
     </title>
 
@@ -230,14 +232,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com/2018/11/02/OkHttp缓存优化你的应用/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="weechan&#39;s blog">
+    <meta property="og:title" content="OkHttp缓存优化你的应用 | weechan&#39;s blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
         <meta property="article:published_time" content="Fri Nov 02 2018 18:46:21 GMT+0800">
-        <meta property="article:modified_time" content="Sat Nov 10 2018 11:10:58 GMT+0800">
+        <meta property="article:modified_time" content="Sat Nov 10 2018 11:14:34 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,9 +260,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "http://yoursite.com/2018/11/02/OkHttp缓存优化你的应用/index.html",
-    "headline": "",
+    "headline": "OkHttp缓存优化你的应用",
     "datePublished": "Fri Nov 02 2018 18:46:21 GMT+0800",
-    "dateModified": "Sat Nov 10 2018 11:10:58 GMT+0800",
+    "dateModified": "Sat Nov 10 2018 11:14:34 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "weechan",
@@ -376,7 +378,7 @@
         
     
             <p class="article-headline-p">
-                
+                OkHttp缓存优化你的应用
             </p>
         </div>
 
@@ -448,7 +450,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=weechan&#39;s blog&title=&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/11/02/OkHttp缓存优化你的应用/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=weechan&#39;s blog&title=OkHttp缓存优化你的应用&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/11/02/OkHttp缓存优化你的应用/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -467,8 +469,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="OkHttp缓存优化你的应用"><a href="#OkHttp缓存优化你的应用" class="headerlink" title="OkHttp缓存优化你的应用"></a>OkHttp缓存优化你的应用</h1><p>标签（空格分隔）： Android</p>
-<hr>
+        <h1 id="OkHttp缓存优化你的应用"><a href="#OkHttp缓存优化你的应用" class="headerlink" title="OkHttp缓存优化你的应用"></a>OkHttp缓存优化你的应用</h1><hr>
 <h3 id="Okhttp缓存原理"><a href="#Okhttp缓存原理" class="headerlink" title="Okhttp缓存原理"></a>Okhttp缓存原理</h3><h4 id="我们先从HTTP协议开始入手-关于缓存的HTTP请求-返回头由以下几个-我列了张表格一一解释"><a href="#我们先从HTTP协议开始入手-关于缓存的HTTP请求-返回头由以下几个-我列了张表格一一解释" class="headerlink" title="我们先从HTTP协议开始入手,关于缓存的HTTP请求/返回头由以下几个,我列了张表格一一解释"></a>我们先从HTTP协议开始入手,关于缓存的HTTP请求/返回头由以下几个,我列了张表格一一解释</h4><table>
 <thead>
 <tr>
@@ -512,7 +513,7 @@
 <p>这里我们主要看CacheInterceptor的实现<br>CacheInterceptor代码比较长,我们分段来解释</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> @Override public Response intercept(Chain chain) throws IOException &#123;</span><br><span class="line"> </span><br><span class="line">    Response cacheCandidate = cache != null</span><br><span class="line">        ? cache.get(chain.request())</span><br><span class="line">        : null;</span><br><span class="line">    // 实际上是类似map,将返回内容的URL的MD5的值当key,返回内容当response</span><br><span class="line">    // 然后从cache文件里面查询是否存在该缓存</span><br><span class="line"></span><br><span class="line">    long now = System.currentTimeMillis();</span><br><span class="line">    //根据当前的时间,以及缓存策略,来获取response</span><br><span class="line">    CacheStrategy strategy = new CacheStrategy.Factory(now, chain.request(), cacheCandidate).get();</span><br><span class="line">    Request networkRequest = strategy.networkRequest;</span><br><span class="line">    Response cacheResponse = strategy.cacheResponse;</span><br><span class="line">    // 根据策略得到cacheReposne 与 NetworkRequest</span><br><span class="line">    // 之后的代码就是根据这两个东西设置返回头</span><br><span class="line"></span><br><span class="line">    // 不进行网络请求,且缓存以及过期了,返回504错误</span><br><span class="line">    if (networkRequest == null &amp;&amp; cacheResponse == null) &#123;</span><br><span class="line">      return new Response.Builder()</span><br><span class="line">          .request(chain.request())</span><br><span class="line">          .protocol(Protocol.HTTP_1_1)</span><br><span class="line">          .code(504)</span><br><span class="line">          .message(&quot;Unsatisfiable Request (only-if-cached)&quot;)</span><br><span class="line">          .body(Util.EMPTY_RESPONSE)</span><br><span class="line">          .sentRequestAtMillis(-1L)</span><br><span class="line">          .receivedResponseAtMillis(System.currentTimeMillis())</span><br><span class="line">          .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 不进行网络请求,此时缓存命中,直接返回缓存,后面的拦截器也不会调用了</span><br><span class="line">    if (networkRequest == null) &#123;</span><br><span class="line">      return cacheResponse.newBuilder()</span><br><span class="line">          .cacheResponse(stripBody(cacheResponse))</span><br><span class="line">          .build();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 否则需要请求网络,继续调用责任链后面的拦截器,请求网络并获取response</span><br><span class="line">    Response networkResponse = null;</span><br><span class="line">    try &#123;</span><br><span class="line">      networkResponse = chain.proceed(networkRequest);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">      // 请求异常,关闭缓存避免泄漏</span><br><span class="line">      if (networkResponse == null &amp;&amp; cacheCandidate != null) &#123;</span><br><span class="line">        closeQuietly(cacheCandidate.body());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 请求了网络的同时,缓存其实也找到的情况</span><br><span class="line">    // (比如 需要向服务器确认缓存是否可用的情况)</span><br><span class="line">    if (cacheResponse != null) &#123;</span><br><span class="line">    // 返回了304, 我们都知道304的返回时不带body的,此时必须向获取cache的body</span><br><span class="line">      if (networkResponse.code() == HTTP_NOT_MODIFIED) &#123;</span><br><span class="line">        Response response = cacheResponse.newBuilder()</span><br><span class="line">            .headers(combine(cacheResponse.headers(), networkResponse.headers()))</span><br><span class="line">            .sentRequestAtMillis(networkResponse.sentRequestAtMillis())</span><br><span class="line">            .receivedResponseAtMillis(networkResponse.receivedResponseAtMillis())</span><br><span class="line">            .cacheResponse(stripBody(cacheResponse))</span><br><span class="line">            .networkResponse(stripBody(networkResponse))</span><br><span class="line">            .build();</span><br><span class="line">        networkResponse.body().close();</span><br><span class="line"></span><br><span class="line">        // Update the cache after combining headers but before stripping the</span><br><span class="line">        // Content-Encoding header (as performed by initContentStream()).</span><br><span class="line">        cache.trackConditionalCacheHit();</span><br><span class="line">        cache.update(cacheResponse, response);</span><br><span class="line">        return response;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        closeQuietly(cacheResponse.body());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //省略---------</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 缓存策略CacheStrategy主要的策略写在该方法下</span><br><span class="line">  private CacheStrategy getCandidate() &#123;</span><br><span class="line">  // 没有缓存!</span><br><span class="line">   if (cacheResponse == null) &#123;</span><br><span class="line">     return new CacheStrategy(request, null);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   // 当请求的协议是https的时候,如果cache没有hansake就丢弃缓存</span><br><span class="line">   if (request.isHttps() &amp;&amp; cacheResponse.handshake() == null) &#123;</span><br><span class="line">     return new CacheStrategy(request, null);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   /// -- 省略一些代码</span><br><span class="line">   </span><br><span class="line">   // 根据缓存的缓存时间,缓存可接受最大过期时间等等HTTP协议上的规范</span><br><span class="line">   // 来判断缓存是否可用,</span><br><span class="line">         if (!responseCaching.noCache() &amp;&amp; ageMillis + minFreshMillis &lt; freshMillis + maxStaleMillis) &#123;</span><br><span class="line">     Response.Builder builder = cacheResponse.newBuilder();</span><br><span class="line">     if (ageMillis + minFreshMillis &gt;= freshMillis) &#123;</span><br><span class="line">       builder.addHeader(&quot;Warning&quot;, &quot;110 HttpURLConnection \&quot;Response is stale\&quot;&quot;);</span><br><span class="line">     &#125;</span><br><span class="line">     long oneDayMillis = 24 * 60 * 60 * 1000L;</span><br><span class="line">     if (ageMillis &gt; oneDayMillis &amp;&amp; isFreshnessLifetimeHeuristic()) &#123;</span><br><span class="line">       builder.addHeader(&quot;Warning&quot;, &quot;113 HttpURLConnection \&quot;Heuristic expiration\&quot;&quot;);</span><br><span class="line">     &#125;</span><br><span class="line">     return new CacheStrategy(null, builder.build());</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>借用一张图来说明http的整个工作流程<br>![此处输入图片的描述][1]<br>  [1]: <a href="https://blog.piasy.com/img/201607/okhttp_full_process.png" target="_blank" rel="noopener">https://blog.piasy.com/img/201607/okhttp_full_process.png</a></p>
+<p>借用一张图来说明http的整个工作流程<br><img src="https://blog.piasy.com/img/201607/okhttp_full_process.png"></p>
 <p> 最后附上当网络可用的时候,自动重新请求的一个基于MVP模式的实现方案</p>
 <p>NetStatusMonitor是一个单例,用于监听整个应用程序的网络状态<br>ActivityManager也是一个单例,用来管理应用程序的活动栈<br>基于MVP模式,给presenter的抽象基类定义一个refresh的方法</p>
 <pre><code>NetStatusMonitor.setNetStatusListener(object: NetStatusMonitor.Listener {
